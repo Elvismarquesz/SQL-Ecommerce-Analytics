@@ -89,3 +89,37 @@ CREATE TABLE sellers (
 
 );
 
+-- =====================================================
+-- Tabela: order_items 
+-- Descrição: Armazena os itens de cada pedido,
+-- incluindo produto, vendedor, prazo, preço e frete
+-- =====================================================
+
+CREATE TABLE order_items (
+
+    order_id VARCHAR(32),
+
+    order_item_id INTEGER,
+
+    product_id VARCHAR(32),
+
+    seller_id VARCHAR(32),
+
+    shipping_limit_date TIMESTAMP,
+
+    price NUMERIC(10,2),
+
+    freight_value NUMERIC(10,2),
+
+    PRIMARY KEY (order_id, order_item_id),
+
+    FOREIGN KEY (order_id)
+        REFERENCES orders(order_id),
+
+    FOREIGN KEY (product_id)
+        REFERENCES products(product_id),
+
+    FOREIGN KEY (seller_id)
+        REFERENCES sellers(seller_id)
+
+);
