@@ -123,3 +123,27 @@ CREATE TABLE order_items (
         REFERENCES sellers(seller_id)
 
 );
+
+-- =====================================================
+-- Tabela: payments
+-- Descrição: Armazena os detalhes financeiros de cada pedido.
+-- =====================================================
+
+CREATE TABLE payments (
+
+    order_id VARCHAR(32),
+
+    payment_sequential INTEGER,
+
+    payment_type VARCHAR(30),
+
+    payment_installments INTEGER,
+
+    payment_value NUMERIC(10,2),
+
+    PRIMARY KEY (order_id, payment_sequential),
+
+    FOREIGN KEY (order_id)
+        REFERENCES orders(order_id)
+
+);
