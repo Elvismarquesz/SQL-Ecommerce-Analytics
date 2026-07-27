@@ -150,7 +150,7 @@ CREATE TABLE payments (
 
 -- =====================================================
 -- Tabela: reviews
--- Descrição:  armazenar opiniões, notas e comentários de usuários
+-- Descrição: armazenar opiniões, notas e comentários de usuários
 -- =====================================================
 
 CREATE TABLE reviews (
@@ -173,5 +173,19 @@ CREATE TABLE reviews (
 
     FOREIGN KEY (order_id)
         REFERENCES orders(order_id)
+
+);
+
+-- =====================================================
+-- Tabela: category_translation
+-- Descrição: Mapeia os nomes das categorias de produtos
+-- em português para o inglês
+-- =====================================================
+
+CREATE TABLE category_translation (
+
+    product_category_name VARCHAR(100) PRIMARY KEY,
+
+    product_category_name_english VARCHAR(100)
 
 );
